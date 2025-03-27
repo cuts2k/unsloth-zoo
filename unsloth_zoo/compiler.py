@@ -628,7 +628,7 @@ else:
             output_logits = output_logits * logit_scale_multiply
         if logit_scale_divide != 0:
             output_logits = output_logits / logit_scale_divide
-        if logit_softcapping != 0:
+        if logit_softcapping:
             output_logits = output_logits / logit_softcapping
             output_logits = torch.tanh(output_logits)
             output_logits = output_logits * logit_softcapping
@@ -747,7 +747,7 @@ elif self.loss_function.__name__.endswith("ForCausalLMLoss") and labels is not N
             output_logits = output_logits * logit_scale_multiply
         if logit_scale_divide != 0:
             output_logits = output_logits / logit_scale_divide
-        if logit_softcapping != 0:
+        if logit_softcapping:
             output_logits = output_logits / logit_softcapping
             output_logits = torch.tanh(output_logits)
             output_logits = output_logits * logit_softcapping
@@ -855,7 +855,7 @@ if labels is not None:
             output_logits = output_logits * logit_scale_multiply
         if logit_scale_divide != 0:
             output_logits = output_logits / logit_scale_divide
-        if logit_softcapping != 0:
+        if logit_softcapping:
             output_logits = output_logits / logit_softcapping
             output_logits = torch.tanh(output_logits)
             output_logits = output_logits * logit_softcapping
